@@ -119,7 +119,7 @@ class PageAjax extends PageRegular
 				// Get the page layout
 				$objLayout = $this->getPageLayout(version_compare(VERSION, '3.0', '>=') ? $objPage : $objPage->layout);
 				$objPage->template = strlen($objLayout->template) ? $objLayout->template : 'fe_page';
-				$objPage->templateGroup = $objLayout->templates;
+				$objPage->templateGroup = $objLayout->getRelated('pid')->templates;
 
 				// Store the output format
 				list($strFormat, $strVariant) = explode('_', $objLayout->doctype);
